@@ -43,7 +43,8 @@ client.connect(err => {
     })
   })
   app.get('/register', (req, res) => {
-    registerEvent.find({}).toArray((error,documents)=>{
+    const data=req.query.email;
+    registerEvent.find({email: data}).toArray((error,documents)=>{
         res.send(documents);
     })
   })
