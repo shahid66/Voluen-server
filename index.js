@@ -46,6 +46,12 @@ client.connect(err => {
     })
   })
 
+  app.get('/deleteReEvent', (req, res) => {
+    registerEvent.find({}).toArray((error,documents)=>{
+        res.send(documents);
+    })
+  })
+
 
 });
 
