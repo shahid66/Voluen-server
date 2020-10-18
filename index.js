@@ -2,7 +2,7 @@
 var express = require('express');
 const bodyParser = require('body-parser');
 var cors = require('cors');
-const MongoClient=require('mongodb').MongoClient;
+
 const Object= require('mongodb').ObjectId;
 require('dotenv').config();
 var app = express();
