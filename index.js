@@ -50,7 +50,8 @@ client.connect(err => {
 
   app.delete('/deleteReEvent/:id', (req, res) => {
     const data=req.params.id;
-    registerEvent.deleteOne({_id: Object(data)}).then((error,result)=>{
+    console.log(data)
+    registerEvent.deleteOne({_id: Object(data)}).then(result=>{
       console.log(result);
     })
 
