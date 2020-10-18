@@ -2,6 +2,8 @@
 var express = require('express');
 const bodyParser = require('body-parser');
 var cors = require('cors');
+const MongoClient=require('mongodb').MongoClient;
+const Object= require('mongodb').ObjectId;
 require('dotenv').config();
 var app = express();
 const port = 5000;
@@ -46,10 +48,12 @@ client.connect(err => {
     })
   })
 
-  app.get('/deleteReEvent', (req, res) => {
-    registerEvent.find({}).toArray((error,documents)=>{
-        res.send(documents);
+  app.delete('/deleteReEvent/:id', (req, res) => {
+    const data=req.params.id;
+    registerEvent.deleteOne({_id: Object(data)}).then((error,result)=>{
+      console.log(result);
     })
+
   })
 
 
